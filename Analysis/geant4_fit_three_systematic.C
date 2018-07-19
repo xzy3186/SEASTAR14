@@ -131,8 +131,8 @@ void geant4_fit(){
    TH1F *hsim[5];
    TH2F *hsim_id_doppler[5];
 
-   sim[3] = new TFile("./geant4spec/78cu_h_77ni_2300.root");
-   sim[4] = new TFile("./geant4spec/78cu_h_77ni_2880.root");
+   sim[3] = new TFile("./geant4spec/78cu_h_77ni_2720.root");
+   sim[4] = new TFile("./geant4spec/78cu_h_77ni_2940.root");
    for(int i=3; i<5; i++){
       sprintf(temp,"hsim[%i]",i);
       hsim[i] = new TH1F(temp,temp,numBin,minBin,maxBin);

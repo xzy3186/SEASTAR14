@@ -133,7 +133,10 @@ void CreateAddBackTable(Double_t maxDistance) {
       fNumberOfAddbackPartners[i] = 0;   
       fprintf(fAddbackTableOut," %i",i);
 
-      for(int j=i+1;j<NUMBEROFDALICRYSTALS;j++) {
+      for(int j=0; j<NUMBEROFDALICRYSTALS; j++) {
+         if(j==i){
+            continue;
+         }
          detid[0] = i;
          detid[1] = j;
 
@@ -288,9 +291,9 @@ int main(int argc, char **argv) {
    Long64_t nentries = TreeCut->fChainCut->GetEntriesFast();
 
    //TFile *rootfile = new TFile("output_test_Zn78.root","RECREATE");
-   //TFile *rootfile = new TFile("output_test_Ni77.root","RECREATE");
+   TFile *rootfile = new TFile("output_Cu78_p2p_Ni77.root","RECREATE");
    //TFile *rootfile = new TFile("output_test_Ni75.root","RECREATE");
-   TFile *rootfile = new TFile("output_test_Ni73.root","RECREATE");
+   //TFile *rootfile = new TFile("output_test_Ni73.root","RECREATE");
    TTree *tree = new TTree("tree","analyzed tree"); 
 
    //TFile *BRcut = new TFile("../cut/brcut.root","READ");
@@ -480,9 +483,9 @@ int main(int argc, char **argv) {
       //for BigRIPS PID cut
       //if(!(brcut1->IsInside(TreeCut->BigRIPSBeam_aoq[0],TreeCut->BigRIPSBeam_zet[0])||brcut2->IsInside(TreeCut->BigRIPSBeam_aoq[0],TreeCut->BigRIPSBeam_zet[0]))){
       //if(!brcut1->IsInside(TreeCut->BigRIPSBeam_aoq[0],TreeCut->BigRIPSBeam_zet[0])){
-      if(brcut1->IsInside(TreeCut->BigRIPSBeam_aoq[0],TreeCut->BigRIPSBeam_zet[0])){
-         continue;
-      }
+      //if(brcut1->IsInside(TreeCut->BigRIPSBeam_aoq[0],TreeCut->BigRIPSBeam_zet[0])){
+      //   continue;
+      //}
       zet = TreeCut->BigRIPSBeam_zet[0];
       aoq = TreeCut->BigRIPSBeam_aoq[0];
 
@@ -736,7 +739,7 @@ int main(int argc, char **argv) {
          for(int j = i+1;j<fDaliFold;j++)  {
             if(crystalUsedForAddback[fDali[j].id]==false && fDali[j].ttrue==true)  {
                for(int k = 0;k<fNumberOfAddbackPartners[fDali[i].id] ;k++) {
-                  if(fDali[j].id == fAddbackTable[fDali[i].id][k+1])  {
+                  if(fDali[j].id == fAddbackTable[fDali[i].id][k])  {
                      crystalUsedForAddback[fDali[j].id]=true;
                      DopplerAngle = CalculateTheta(fDali[i].x,fDali[i].y,fDali[i].z,x_vertex,y_vertex,z_vertex);
                      dummyEnergy[fDaliMultTa] += DopplerCorrect(beta_vertex,DopplerAngle,fDali[j].e);
@@ -953,8 +956,8 @@ int main(int argc, char **argv) {
          if(fDaliMultTa==8) h_EtudeMult[8]->Fill(fDali[j].doppwa);
          if(fDaliMultTa==9) h_EtudeMult[9]->Fill(fDali[j].doppwa);
 
-         if(fDaliMultTa>3)  h_dopplerAB_id[2]->Fill(fDali[j].idwa,fDali[j].doppwa);
-         if(fDaliMultTa<=3) {
+         if(fDaliMultTa>5)  h_dopplerAB_id[2]->Fill(fDali[j].idwa,fDali[j].doppwa);
+         if(fDaliMultTa<=5) {
 
             hEnergyZ->Fill(z_vertex,fDali[j].doppwa);
 

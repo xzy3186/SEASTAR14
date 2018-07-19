@@ -80,20 +80,20 @@ void geant4_fit(){
    TFile *sim[6];
    //sim[0] = new TFile("./geant4spec/81ga_h_78zn_730.root");
    //sim[1] = new TFile("./geant4spec/81ga_h_78zn_890.root");
-   sim[0] = new TFile("./geant4spec/78cu_h_77ni_535.root");
+   sim[0] = new TFile("./geant4spec/78cu_h_77ni_540.root");
    sim[1] = new TFile("./geant4spec/78cu_h_77ni_610.root");
-   sim[2] = new TFile("./geant4spec/78cu_h_77ni_680.root");
-   sim[3] = new TFile("./geant4spec/78cu_h_77ni_940.root");
-   sim[4] = new TFile("./geant4spec/78cu_h_77ni_2650.root");
-   sim[5] = new TFile("./geant4spec/78cu_h_77ni_2880.root");
+   sim[2] = new TFile("./geant4spec/78cu_h_77ni_690.root");
+   sim[3] = new TFile("./geant4spec/78cu_h_77ni_920.root");
+   sim[4] = new TFile("./geant4spec/78cu_h_77ni_2720.root");
+   sim[5] = new TFile("./geant4spec/78cu_h_77ni_2940.root");
    //sim[0] = new TFile("./geant4spec/88y_898.root");
    //sim[1] = new TFile("./geant4spec/88y_1836.root");
 
    //Experimental data
    TFile *exp[1];
    //exp[0] = new TFile("./RootOutputFiles/hist_Ga81_p2p_Zn78.root");
-   exp[0] = new TFile("./hist_test_77Ni.root");
-   //exp[0] = new TFile("./RootOutputFiles/hist_Cu78_p2p_Ni77.root");
+   //exp[0] = new TFile("./hist_test_77Ni.root");
+   exp[0] = new TFile("./RootOutputFiles/hist_Cu78_p2p_Ni77.root");
    //exp[0] = new TFile("./RootInputFiles/calib/hist_Y88.root");
 
    TCanvas *fCanvas=new TCanvas("Canvas","Canvas",700,500);

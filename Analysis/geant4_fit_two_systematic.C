@@ -81,8 +81,8 @@ void geant4_fit(){
    //Experimental data
    TFile *exp[1];
    //exp[0] = new TFile("./RootOutputFiles/hist_Ga81_p2p_Zn78.root");
-   //exp[0] = new TFile("./RootOutputFiles/hist_Cu78_p2p_Ni77.root");
-   exp[0] = new TFile("./hist_test_77Ni.root");
+   exp[0] = new TFile("./RootOutputFiles/hist_Cu78_p2p_Ni77.root");
+   //exp[0] = new TFile("./hist_test_77Ni.root");
    //exp[0] = new TFile("./RootInputFiles/calib/hist_Y88.root");
 
    //The experimental spectra:
@@ -131,7 +131,7 @@ void geant4_fit(){
    TH1F *hsim[5];
    TH2F *hsim_id_doppler[5];
 
-   sim[2] = new TFile("./geant4spec/78cu_h_77ni_2880.root");
+   sim[2] = new TFile("./geant4spec/78cu_h_77ni_590.root");
    sim[3] = new TFile("./geant4spec/78cu_h_77ni_680.root");
    sim[4] = new TFile("./geant4spec/78cu_h_77ni_940.root");
    for(int i=2; i<5; i++){
@@ -153,7 +153,7 @@ void geant4_fit(){
    int k=0;
 
    //To make systematic fitting to get 2D chi2 plot
-   for(int i=0; i<44; i++){
+   for(int i=0; i<50; i++){
       sprintf(temp,"./geant4spec/78cu_h_77ni_%d.root",2000+20*i);
       sim[0] = new TFile(temp);
       hsim[0] = new TH1F("hsim[0]","hsim[0]",numBin,minBin,maxBin);
@@ -161,7 +161,7 @@ void geant4_fit(){
       hsim[0] = (TH1F*)hsim_id_doppler[0]->ProjectionY("crystal_fired_doppler_py[0]",daliIDMin,daliIDMax);
       peakg[0] = new TGraph(hsim[0]);
       //peakg[0]->Draw();
-      for(int j=i+1; j<44; j++){
+      for(int j=i+1; j<50; j++){
          sprintf(temp,"./geant4spec/78cu_h_77ni_%d.root",2000+20*j);
          sim[1] = new TFile(temp);
          hsim[1] = new TH1F("hsim[1]","hsim[1]",numBin,minBin,maxBin);
@@ -171,19 +171,19 @@ void geant4_fit(){
          //peakg[1]->Draw("same");
 
          //start fitting with the current peak configuration
-         whole1->SetParameters(1,1,1,1,1,1.9,-0.000080,1.9,-0.000080);
+         whole1->SetParameters(1e-3,1e-3,1,1,1,1.9,-0.000080,1.9,-0.000080);
          //whole1->SetParLimits(0,1e-9,1000.1);
          //whole1->SetParLimits(1,1e-9,1000.1);
-         whole1->SetParLimits(0,1e-9,1000.1);
-         whole1->SetParLimits(1,1e-9,1000.1);
-         whole1->SetParLimits(2,1e-9,1000.1);
+         whole1->SetParLimits(0,0,1000.1);
+         whole1->SetParLimits(1,0,1000.1);
+         //whole1->SetParLimits(2,1e-9,1000.1);
          whole1->SetParLimits(5,0,10);
          whole1->SetParLimits(6,-0.1,-1e-5);
          whole1->SetParLimits(7,0,10);
          whole1->SetParLimits(8,-0.1,-1e-5);
-         //whole1->FixParameter(2,2.68843e-03);
-         whole1->FixParameter(3,1.95106e-03);
-         whole1->FixParameter(4,9.54702e-04);
+         whole1->FixParameter(2, 0);
+         whole1->FixParameter(3, 0);
+         whole1->FixParameter(4, 0);
          //whole1->FixParameter(5,0);
          //whole1->FixParameter(6,0);
          whole1->SetLineColor(1);

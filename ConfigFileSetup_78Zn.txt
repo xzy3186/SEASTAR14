@@ -1,0 +1,17 @@
+Ga81
+MINOSthresh 25.0
+TimeBinElec 20.0
+VDrift 4.56
+Tshaping 333.0
+DelayTrig 1340.0
+DALIOffset 39.0
+TargetLength 102.0
+A 81
+Z 31
+BeamEnergy 270.4
+BetaB 0.6319
+BetaM 0.5981
+BetaA 0.5643
+BetaBAv 0.642
+BetaAAv 0.5562
+ 

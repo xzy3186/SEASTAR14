@@ -8,13 +8,13 @@ using namespace std;
 EventCut::EventCut() {
    fChainCut = new TChain();
    //  77Ni
-   //fChainCut->AddFile("../rootfiles/78Ni/psp14_77Ni_new.root",0,"tree");
+   fChainCut->AddFile("../rootfiles/78Ni/psp14_78Cu_p2p_77Ni_new.root",0,"tree");
    //  78Zn
    //fChainCut->AddFile("../rootfiles/78Ni/psp14_78Zn_new.root",0,"tree");
    //  75Ni
    //fChainCut->AddFile("../rootfiles/78Ni/psp14_75Ni_new.root",0,"tree");
    //  73Ni
-   fChainCut->AddFile("../rootfiles/78Ni/psp14_73Ni_new.root",0,"tree");
+   //fChainCut->AddFile("../rootfiles/78Ni/psp14_73Ni_new.root",0,"tree");
 
    Init();
 }

@@ -1,0 +1,17 @@
+Cu78
+MINOSthresh 25.0
+TimeBinElec 20.0
+VDrift 4.56
+Tshaping 333.0
+DelayTrig 1340.0
+DALIOffset 39.0
+TargetLength 100.0
+A 78
+Z 29
+BeamEnergy 256.2
+BetaB 0.6204
+BetaM 0.5878
+BetaA 0.5552
+BetaBAv 0.6314
+BetaAAv 0.5481
+ 

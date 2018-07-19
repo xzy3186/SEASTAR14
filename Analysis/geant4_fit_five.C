@@ -59,13 +59,13 @@ void geant4_fit(){
    char temp[300];
    int minBin = 0;
    int maxBin = 5000;
-   int binning = 50;
+   int binning = 20;
    int numBin = (maxBin-minBin)/binning;
 
    /********************** function definition ************************/
    //const Double_t fitmin = 150;
    //const Double_t fitmax = 2000;
-   const Double_t fitmin = 400;
+   const Double_t fitmin = 1500;
    const Double_t fitmax = 5000;
 
    int daliIDMin = 1;
@@ -97,8 +97,8 @@ void geant4_fit(){
    TFile *exp[1];
    //exp[0] = new TFile("./RootOutputFiles/hist_Ga81_p2p_Zn78.root");
    //exp[0] = new TFile("./hist_test_78Zn.root");
-   exp[0] = new TFile("./hist_test_77Ni.root");
-   //exp[0] = new TFile("./RootOutputFiles/hist_Cu78_p2p_Ni77.root");
+   //exp[0] = new TFile("./hist_test_77Ni.root");
+   exp[0] = new TFile("./RootOutputFiles/hist_Cu78_p2p_Ni77.root");
    //exp[0] = new TFile("./RootInputFiles/calib/hist_Y88.root");
 
    TCanvas *fCanvas=new TCanvas("Canvas","Canvas",600,400);
